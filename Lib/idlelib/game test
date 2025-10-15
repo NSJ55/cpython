@@ -1,0 +1,32 @@
+class Player:
+    def __init__(self, name, gender):
+        self.name = name
+        self.gender = gender
+
+def create_player():
+    name = input("Enter your name: ")
+    gender = input("Enter your gender (male/female): ").lower()
+    while gender not in ['male', 'female']:
+        print("Invalid gender. Please enter 'male' or 'female'.")
+        gender = input("Enter your gender (male/female): ").lower()
+    return Player(name, gender)
+
+def main():
+    print("Welcome to the Opposite Genders Game!")
+    
+    # Create players
+    player1 = create_player()
+    player2 = create_player()
+    
+    # Ensure players are opposite genders
+    while player1.gender == player2.gender:
+        print("Players must be of opposite genders. Please re-enter the second player's details.")
+        player2 = create_player()
+    
+    print(f"\nGreat! {player1.name} (Gender: {player1.gender}) and {player2.name} (Gender: {player2.gender}) are ready to play together!")
+    
+    # Game logic can be added here
+    print("Let's start the adventure!")
+
+if __name__ == "__main__":
+    main()
